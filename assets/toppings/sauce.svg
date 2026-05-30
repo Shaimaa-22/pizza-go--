@@ -1,0 +1,68 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <radialGradient id="sauceGrad" cx="45%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#ff6b5e"/>
+      <stop offset="55%" stop-color="#d62828"/>
+      <stop offset="100%" stop-color="#9e1b1b"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Sauce Circle -->
+  <circle
+    cx="250"
+    cy="250"
+    r="235"
+    fill="url(#sauceGrad)"
+  />
+
+  <!-- Large Brush Marks -->
+  <path
+    d="M80 170 C170 120 330 120 420 170"
+    stroke="#ff9a85"
+    stroke-width="14"
+    stroke-linecap="round"
+    opacity="0.18"
+    fill="none"
+  />
+
+  <path
+    d="M70 250 C170 210 330 210 430 250"
+    stroke="#ff9a85"
+    stroke-width="14"
+    stroke-linecap="round"
+    opacity="0.15"
+    fill="none"
+  />
+
+  <path
+    d="M90 330 C180 285 320 285 410 330"
+    stroke="#ff9a85"
+    stroke-width="14"
+    stroke-linecap="round"
+    opacity="0.12"
+    fill="none"
+  />
+
+  <!-- Highlights -->
+  <ellipse
+    cx="190"
+    cy="175"
+    rx="75"
+    ry="24"
+    fill="#ffb4a2"
+    opacity="0.12"
+    transform="rotate(-20 190 175)"
+  />
+
+  <ellipse
+    cx="325"
+    cy="305"
+    rx="65"
+    ry="18"
+    fill="#ffb4a2"
+    opacity="0.08"
+    transform="rotate(15 325 305)"
+  />
+
+</svg>

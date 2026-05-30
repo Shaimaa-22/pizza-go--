@@ -1,0 +1,379 @@
+/* payment.css - Enhanced Professional Version */
+.payment-page,
+.success-page {
+  width: min(1080px, calc(100% - 48px));
+  margin: 28px auto 48px;
+  display: grid;
+  gap: 28px;
+}
+
+.payment-card {
+  padding: 28px;
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+  transition: all 0.3s ease;
+}
+
+.payment-card:hover {
+  border-color: rgba(255, 177, 92, 0.2);
+}
+
+.payment-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.payment-head h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.secure-badge {
+  padding: 8px 16px;
+  border-radius: 100px;
+  background: rgba(76, 217, 100, 0.1);
+  color: #6bdc7e;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid rgba(76, 217, 100, 0.2);
+  backdrop-filter: blur(4px);
+}
+
+/* Payment Layout */
+.payment-layout {
+  display: grid;
+  grid-template-columns: minmax(360px, 440px) 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* 3D Card */
+.card-preview-wrap {
+  perspective: 1200px;
+}
+
+.bank-card {
+  position: relative;
+  width: 100%;
+  min-height: 280px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.bank-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.bank-card-front,
+.bank-card-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  padding: 26px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #1a1f2e 0%, #0d1117 55%, #181220 100%);
+}
+
+.bank-card-back {
+  transform: rotateY(180deg);
+}
+
+.bank-card-front::before,
+.bank-card-back::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), transparent 40%);
+  pointer-events: none;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 38px;
+  position: relative;
+  z-index: 2;
+}
+
+.chip {
+  width: 56px;
+  height: 42px;
+  border-radius: 12px;
+  display: inline-block;
+  background: linear-gradient(135deg, #f4d08b, #c8922d);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.4), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-brand,
+.back-brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.card-number-block {
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.card-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 700;
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.card-holder-block,
+.card-expiry-block {
+  flex: 1;
+}
+
+.card-holder-name {
+  min-height: 28px;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.stripe-inside {
+  min-height: 28px;
+}
+
+.stripe-number {
+  min-height: 38px;
+  padding: 6px 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+}
+
+.stripe-expiry,
+.stripe-cvc {
+  min-height: 28px;
+  padding: 4px 0;
+}
+
+.black-strip {
+  height: 52px;
+  margin: 22px -26px 24px;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.cvc-zone {
+  position: relative;
+  z-index: 2;
+  margin-left: auto;
+  width: min(200px, 100%);
+  padding: 14px 18px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.back-label {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.cvc-zone .stripe-cvc {
+  color: #1a1f2e;
+}
+
+.back-brand {
+  position: absolute;
+  bottom: 24px;
+  right: 26px;
+  font-size: 1.2rem;
+}
+
+/* Flip Button */
+.flip-card-btn {
+  margin-top: 18px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  color: #fff;
+  border-radius: 60px;
+  padding: 12px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.flip-card-btn:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 177, 92, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Payment Form */
+.payment-form-side {
+  display: grid;
+  gap: 20px;
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.card-help {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 8px 0;
+}
+
+.card-error {
+  margin: 0;
+  color: #ff8c8c;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Summary Row */
+.summary-row strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* Success Page */
+.success-card {
+  text-align: center;
+  padding: 56px 40px;
+}
+
+.success-card h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+
+.success-card p {
+  color: var(--muted);
+}
+
+.success-link {
+  max-width: 320px;
+  margin-inline: auto;
+}
+
+.premium-success-card {
+  max-width: 780px;
+  margin-inline: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-success-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255, 191, 120, 0.12), transparent 50%);
+  pointer-events: none;
+}
+
+.success-icon-wrap {
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+}
+
+.success-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #ffb87a, #ef6c2f);
+  box-shadow: 0 20px 40px rgba(239, 108, 47, 0.3), 0 0 40px rgba(255, 177, 92, 0.2);
+  animation: successPop 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+@keyframes successPop {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 950px) {
+  .payment-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .card-preview-wrap {
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 700px) {
+  .payment-page,
+  .success-page {
+    width: calc(100% - 24px);
+    margin: 20px auto 32px;
+  }
+
+  .payment-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .payment-head {
+    flex-direction: column;
+  }
+
+  .bank-card {
+    min-height: 250px;
+  }
+
+  .bank-card-front,
+  .bank-card-back {
+    padding: 20px;
+    border-radius: 26px;
+  }
+
+  .card-brand,
+  .back-brand {
+    font-size: 1.2rem;
+  }
+
+  .stripe-number {
+    font-size: 1rem;
+  }
+
+  .success-card {
+    padding: 36px 24px;
+  }
+}

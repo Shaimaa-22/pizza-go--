@@ -1,0 +1,228 @@
+{
+  "global": {
+    "brand": "Pizza Go",
+    "home": "Home",
+    "order": "Order",
+    "payment": "Payment",
+    "logout": "Logout",
+    "login": "Login",
+    "register": "Register",
+    "loading": "Loading...",
+    "back": "Back",
+    "next": "Next",
+    "submit": "Submit",
+    "cancel": "Cancel"
+  },
+
+  "homePage": {
+    "heroTitle": "Where taste meets velocity.",
+    "heroText": "Experience the future of smart pizza ordering with automation, customization, and fast preparation.",
+
+    "badge": "PIZZA GO · DIGITAL OVEN",
+    "headline1": "Where taste",
+    "headline2": "meets velocity.",
+    "description": "Experience the future of smart pizza ordering. Ultra-fast, visually immersive, and intelligently crafted. Log in or register to unlock a premium dashboard with real-time insights.",
+
+    "getStarted": "Get Started",
+    "secureLogin": "Secure Login",
+
+    "featuresTitle": "Why Pizza Go?",
+    "feature1Title": "Smart Ordering",
+    "feature1Text": "Customize your pizza through a simple and interactive website.",
+
+    "feature2Title": "Automated Preparation",
+    "feature2Text": "Your order is sent to a smart pizza-making machine.",
+
+    "feature3Title": "Fast Experience",
+    "feature3Text": "From order to preparation, everything is designed to save time.",
+
+    "smartAccess": "Smart Access",
+    "instantUi": "instant UI",
+    "experienceRank": "Experience rank",
+
+    "smartQueue": "✨ Smart queue",
+    "aiOptimization": "AI-driven optimization",
+
+    "instantOrderSync": "⚡ Instant order sync",
+    "realTimeUpdates": "real-time updates",
+
+    "artisanalRecipes": "🍕 Artisanal recipes",
+    "freshIngredients": "fresh ingredients",
+
+    "privacyFirst": "🔒 Privacy-first",
+    "enterpriseGrade": "enterprise grade"
+  },
+
+  "loginPage": {
+    "title": "Welcome Back",
+    "subtitle": "Login to continue your Pizza Go experience.",
+    "email": "Email Address",
+    "password": "Password",
+    "loginButton": "Login",
+    "noAccount": "Don’t have an account?",
+    "createAccount": "Create Account",
+    "loginSuccess": "Login successful",
+    "loginError": "Invalid email or password"
+  },
+
+  "registerPage": {
+    "title": "Create Account",
+    "subtitle": "Join Pizza Go and start customizing your pizza.",
+    "name": "Full Name",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "registerButton": "Register",
+    "haveAccount": "Already have an account?",
+    "loginNow": "Login Now",
+    "registerSuccess": "Account created successfully",
+    "registerError": "Registration failed"
+  },
+
+  "orderPage": {
+    "title": "Craft your signature pizza",
+    "subtitle": "Customize your pizza, choose your toppings, and watch your price update instantly.",
+
+    "pizzaDetails": "Pizza Details",
+    "pizzaSize": "Pizza Size",
+
+    "small": "Small",
+    "medium": "Medium",
+    "large": "Large",
+
+    "quantity": "Quantity",
+
+    "toppings": "Toppings",
+
+    "sauce": "Sauce",
+    "cheese": "Cheese",
+    "mushroom": "Mushroom",
+    "olive": "Olive",
+    "tomato": "Tomato",
+    "pepper": "Pepper",
+    "corn": "Corn",
+    "onion": "Onion",
+
+    "totalPrice": "Total Price",
+
+    "continuePayment": "Continue to Payment",
+
+    "selectToppings": "Select your toppings",
+
+    "orderCreated": "Order created successfully",
+    "orderError": "Failed to create order"
+  },
+
+  "paymentPage": {
+    "title": "Complete Your Payment",
+    "subtitle": "Review your order and complete the payment securely.",
+
+    "orderSummary": "Order Summary",
+    "orderId": "Order ID",
+    "selectedToppings": "Selected Toppings",
+
+    "total": "Total",
+
+    "payNow": "Pay Now",
+
+    "paymentSuccess": "Payment completed successfully",
+    "paymentError": "Payment failed. Please try again.",
+
+    "reviewOrder": "Review your order",
+
+    "secureCheckout": "Secure Checkout",
+    "cardPayment": "Card payment",
+
+    "stripeProtected": "Stripe Protected",
+
+    "cardNumber": "Card Number",
+
+    "cardholder": "Cardholder",
+
+    "expires": "Expires",
+
+    "enterCvc": "Enter CVC",
+
+    "cardholderName": "Cardholder Name",
+
+    "billingEmail": "Billing Email",
+
+    "cardHelp": "Use Stripe test card details while testing.",
+
+    "payNowButton": "Pay & Place Order"
+  },
+
+  "successPage": {
+    "eyebrow": "Payment Complete",
+
+    "title": "Order placed successfully",
+
+    "message": "Your pizza order has been confirmed and sent successfully.",
+
+    "orderId": "Order ID",
+
+    "redirectMessage": "You will be redirected shortly.",
+
+    "startGame": "Start Game",
+
+    "preparing": "Your pizza is now being prepared 🍕",
+
+    "loadingGame": "Loading mini game...",
+
+    "anotherOrder": "Make Another Order"
+  },
+
+  "gamePage": {
+    "title": "Pizza Catch Game",
+
+    "subtitle": "Catch only your selected toppings!",
+
+    "score": "Score",
+    "time": "Time",
+    "best": "Best",
+
+    "points": "Points",
+
+    "restart": "Again",
+
+    "levels": "Levels",
+
+    "message": "Move your pizza and catch the right toppings!",
+
+    "status": "🛵 Check Order Status",
+
+    "chooseDifficulty": "Choose your difficulty",
+
+    "easy": "Easy",
+    "easyDesc": "Chill vibes, slow drops",
+
+    "medium": "Medium",
+    "mediumDesc": "Getting spicy now",
+
+    "hard": "Hard",
+    "hardDesc": "Fast, chaotic, ruthless",
+
+    "insane": "Insane",
+    "insaneDesc": "You asked for this",
+
+    "winMessage": "Great job! You caught the right toppings.",
+
+    "loseMessage": "Oops! You caught the wrong topping."
+  },
+
+  "aiPage": {
+    "title": "AI Pizza Assistant",
+
+    "subtitle": "Ask the AI assistant to help you choose your perfect pizza.",
+
+    "placeholder": "Ask me anything about your pizza...",
+
+    "send": "Send",
+
+    "suggestionTitle": "Pizza Suggestions",
+
+    "assistantThinking": "Assistant is thinking...",
+
+    "voiceAssistant": "🎙️ Voice Assistant"
+  }
+}

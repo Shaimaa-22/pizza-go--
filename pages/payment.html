@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Pizza Go - Payment</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/payment.css" />
+
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<body>
+
+  <header class="topbar">
+
+    <h1>Pizza Go</h1>
+
+    <div class="topbar-actions">
+
+      <button
+        id="langToggle"
+        class="ghost-btn"
+        type="button"
+      >
+        AR
+      </button>
+
+      <button
+        class="ghost-btn theme-toggle"
+        type="button"
+      >
+        ☀️ Light
+      </button>
+
+      <span
+        class="user-chip"
+        id="userChip"
+      ></span>
+
+      <button
+        class="ghost-btn"
+        id="logoutBtn"
+        type="button"
+      >
+        Logout
+      </button>
+
+    </div>
+
+  </header>
+
+  <main class="payment-page">
+
+    <!-- ORDER SUMMARY -->
+
+    <section class="card">
+
+      <div class="section-head">
+
+        <div>
+
+          <p class="eyebrow">
+            Order Summary
+          </p>
+
+          <h2>
+            Review your order
+          </h2>
+
+        </div>
+
+      </div>
+
+      <div class="summary-box">
+
+        <div class="summary-row">
+          <span>Pizza Size</span>
+
+          <strong id="summarySize">
+            Standard Size
+          </strong>
+        </div>
+
+        <div class="summary-row">
+
+          <span>Quantity</span>
+
+          <strong id="summaryQuantity">
+            1 Pizza
+          </strong>
+
+        </div>
+
+        <div class="summary-row">
+
+          <span>Toppings</span>
+
+          <strong id="summaryToppings">
+            -
+          </strong>
+
+        </div>
+
+        <div class="summary-row total">
+
+          <span>Total</span>
+
+          <strong id="summaryTotal">
+            $0.00
+          </strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- PAYMENT -->
+
+    <section class="card">
+
+      <div class="payment-card">
+
+        <div class="payment-head">
+
+          <div>
+
+            <p class="eyebrow">
+              Secure Checkout
+            </p>
+
+            <h3>
+              Card payment
+            </h3>
+
+          </div>
+
+          <span class="secure-badge">
+            Stripe Protected
+          </span>
+
+        </div>
+
+        <div class="payment-layout">
+
+          <!-- CARD -->
+
+          <div class="card-preview-wrap">
+
+            <div class="bank-card" id="bankCard">
+
+              <div class="bank-card-front">
+
+                <div class="card-top">
+
+                  <span class="chip"></span>
+
+                  <span class="card-brand">
+                    VISA
+                  </span>
+
+                </div>
+
+                <div class="card-number-block">
+
+                  <span class="card-label">
+                    Card Number
+                  </span>
+
+                  <div
+                    id="cardNumberElement"
+                    class="stripe-inside stripe-number"
+                  ></div>
+
+                </div>
+
+                <div class="card-bottom">
+
+                  <div class="card-holder-block">
+
+                    <span class="card-label">
+                      Cardholder
+                    </span>
+
+                    <div
+                      class="card-holder-name"
+                      id="cardHolderPreview"
+                    >
+                      YOUR NAME
+                    </div>
+
+                  </div>
+
+                  <div class="card-expiry-block">
+
+                    <span class="card-label">
+                      Expires
+                    </span>
+
+                    <div
+                      id="cardExpiryElement"
+                      class="stripe-inside stripe-expiry"
+                    ></div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              <!-- BACK -->
+
+              <div class="bank-card-back">
+
+                <div class="black-strip"></div>
+
+                <div class="cvc-zone">
+
+                  <span class="card-label back-label">
+                    CVC
+                  </span>
+
+                  <div
+                    id="cardCvcElement"
+                    class="stripe-inside stripe-cvc"
+                  ></div>
+
+                </div>
+
+                <div class="back-brand">
+                  VISA
+                </div>
+
+              </div>
+
+            </div>
+
+            <button
+              type="button"
+              class="flip-card-btn"
+              id="flipToCvcBtn"
+            >
+              Enter CVC
+            </button>
+
+          </div>
+
+          <!-- FORM -->
+
+          <div class="payment-form-side">
+
+            <div class="payment-grid">
+
+              <label>
+
+                <span>
+                  Cardholder Name
+                </span>
+
+                <input
+                  type="text"
+                  id="billingName"
+                  placeholder="Name on card"
+                />
+
+              </label>
+
+              <label>
+
+                <span>
+                  Billing Email
+                </span>
+
+                <input
+                  type="email"
+                  id="billingEmail"
+                  placeholder="name@example.com"
+                />
+
+              </label>
+
+            </div>
+
+            <p class="card-help">
+              Use Stripe test card details while testing.
+            </p>
+
+            <p
+              class="card-error hidden"
+              id="cardError"
+            ></p>
+
+            <button
+              type="button"
+              class="primary-btn"
+              id="payNowBtn"
+            >
+              Pay & Place Order
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="loader hidden" id="loader">
+
+    <div class="loader-card">
+
+      <div class="spinner"></div>
+
+      <p id="loaderText">
+        Loading...
+      </p>
+
+    </div>
+
+  </div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/lang.js"></script>
+  <script src="../js/payment.js"></script>
+  <script src="../js/theme.js"></script>
+
+</body>
+</html>

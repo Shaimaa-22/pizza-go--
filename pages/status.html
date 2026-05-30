@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Pizza Go - Order Status</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/payment.css" />
+  <link rel="stylesheet" href="../css/status.css" />
+</head>
+
+<body>
+
+<main class="success-page">
+
+  <div class="card success-card premium-success-card">
+
+    <p class="eyebrow">
+      Live Machine Tracking
+    </p>
+
+    <h1>
+      Order Status
+    </h1>
+
+    <p id="statusText">
+      Waiting for machine update...
+    </p>
+
+    <h2 id="orderIdText">
+      Order ID: -
+    </h2>
+
+    <div class="tracker">
+
+      <div class="step" id="step-paid">
+        <span>💳</span>
+        <p>Payment Received</p>
+      </div>
+
+      <div class="step" id="step-queued">
+        <span>⏳</span>
+        <p>Waiting in Queue</p>
+      </div>
+
+      <div class="step" id="step-moving_to_sauce">
+        <span>➡️</span>
+        <p>Moving to Sauce Station</p>
+      </div>
+
+      <div class="step" id="step-sauce">
+        <span>🍅</span>
+        <p>Adding Sauce</p>
+      </div>
+
+      <div class="step" id="step-moving_to_toppings">
+        <span>➡️</span>
+        <p>Moving to Toppings Station</p>
+      </div>
+
+      <div class="step" id="step-toppings">
+        <span>🌽</span>
+        <p>Adding Toppings</p>
+      </div>
+
+      <div class="step" id="step-moving_to_cheese">
+        <span>➡️</span>
+        <p>Moving to Cheese Station</p>
+      </div>
+
+      <div class="step" id="step-cheese">
+        <span>🧀</span>
+        <p>Adding Cheese</p>
+      </div>
+
+      <div class="step" id="step-moving_to_oven">
+        <span>➡️</span>
+        <p>Moving to Oven</p>
+      </div>
+
+      <div class="step" id="step-heating">
+        <span>🔥</span>
+        <p>Baking Pizza</p>
+      </div>
+
+      <div class="step" id="step-ready">
+        <span>✅</span>
+        <p>Ready</p>
+      </div>
+
+    </div>
+
+    <div
+      style="
+        display:flex;
+        flex-direction:column;
+        gap:12px;
+        margin-top:24px;
+      "
+    >
+
+      <a
+        href="./game.html"
+        class="secondary-btn success-link"
+      >
+        Play Game
+      </a>
+
+      <a
+        href="../index.html"
+        class="ghost-btn success-link"
+      >
+        Home
+      </a>
+
+    </div>
+
+  </div>
+
+</main>
+
+<script src="../js/config.js"></script>
+<script src="../js/status.js"></script>
+
+</body>
+</html>

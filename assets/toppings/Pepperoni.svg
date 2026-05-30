@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40">
+  <defs>
+    <radialGradient id="pepperGrad" cx="40%" cy="35%">
+      <stop offset="0%" stop-color="#E53935"/>
+      <stop offset="100%" stop-color="#8B0000"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Pepperoni slice -->
+  <circle cx="50" cy="50" r="38" fill="url(#pepperGrad)"/>
+  
+  <!-- Fat spots -->
+  <circle cx="38" cy="40" r="4" fill="#FF8A80" opacity="0.4"/>
+  <circle cx="58" cy="55" r="3" fill="#FF8A80" opacity="0.4"/>
+  <circle cx="45" cy="62" r="3" fill="#FF8A80" opacity="0.3"/>
+  <circle cx="62" cy="38" r="2.5" fill="#FF8A80" opacity="0.3"/>
+  
+  <!-- Dark edge -->
+  <circle cx="50" cy="50" r="38" fill="none" stroke="#5D0000" stroke-width="2" opacity="0.4"/>
+</svg>

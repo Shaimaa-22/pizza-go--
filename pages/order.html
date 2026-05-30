@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Pizza Go - Order</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/order.css" />
+</head>
+
+<body>
+
+  <header class="topbar">
+    <div class="logo-wrap">
+      <img src="../assets/images/icon.png" alt="Pizza Go Logo" class="logo-img">
+      <h1 data-i18n="global.brand">Pizza Go</h1>
+    </div>
+
+    <div class="topbar-actions">
+
+      <button
+        id="langToggle"
+        class="ghost-btn"
+        type="button"
+      >
+        AR
+      </button>
+
+      <button
+        class="ghost-btn theme-toggle"
+        type="button"
+      >
+        ☀️ Light
+      </button>
+
+      <span
+        class="user-chip"
+        id="userChip"
+      ></span>
+
+      <button
+        class="ghost-btn"
+        id="logoutBtn"
+        type="button"
+        data-i18n="global.logout"
+      >
+        Logout
+      </button>
+
+      <a class="ghost-btn" href="./my-orders.html">
+        My Orders
+      </a>
+
+    </div>
+  </header>
+
+  <main class="order-page">
+
+    <section class="card">
+
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Live Preview</p>
+
+          <h2 data-i18n="orderPage.title">
+            Craft your signature pizza
+          </h2>
+
+          <p class="muted">
+            Standard machine pizza with live topping preview.
+          </p>
+        </div>
+
+        <span class="status-pill" id="backendStatus">
+          Connected
+        </span>
+      </div>
+
+      <div class="pizza-stage">
+        <div class="pizza" id="pizzaPreview">
+          <div class="pizza-base"></div>
+
+          <div
+            class="pizza-toppings-visual"
+            id="pizzaToppingsVisual"
+          ></div>
+        </div>
+      </div>
+
+      <div class="legend">
+
+  <span>
+    <i class="dot olive-dot"></i>
+    Olive
+  </span>
+
+  <span>
+    <i class="dot pepper-dot"></i>
+    Sweet Pepper
+  </span>
+
+  <span>
+    <i class="dot corn-dot"></i>
+    Corn
+  </span>
+
+</div>
+
+    </section>
+
+    <section class="card">
+
+      <div class="section-head">
+        <div>
+
+          <p class="eyebrow">
+            Order Builder
+          </p>
+
+          <h2>
+            Pizza Details
+          </h2>
+
+          <p class="muted">
+            Standard pizza size. Choose toppings and optional sauce only.
+          </p>
+
+        </div>
+      </div>
+
+      <!-- FIXED SIZE -->
+
+      <div class="option-block">
+
+        <div class="option-row">
+
+          <p class="option-title">
+            Pizza Size
+          </p>
+
+          <div class="fixed-size-badge">
+            Standard Size
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- FIXED QUANTITY -->
+
+      <div class="option-block">
+
+        <div class="option-row">
+
+          <p class="option-title">
+            Quantity
+          </p>
+
+          <div class="fixed-size-badge">
+            1 Pizza
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- TOPPINGS -->
+
+      <div class="option-block">
+
+        <div class="option-row">
+
+          <p class="option-title">
+            Toppings
+          </p>
+
+          <button
+            type="button"
+            class="ghost-btn small"
+            id="reloadToppingsBtn"
+          >
+            Reload
+          </button>
+
+        </div>
+
+        <div
+          class="toppings-list"
+          id="toppingsList"
+        ></div>
+
+      </div>
+
+      <!-- SUMMARY -->
+
+      <div class="summary-box">
+
+        <div class="summary-row">
+          <span>Size</span>
+          <strong>Standard Size</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Base price</span>
+          <strong id="basePriceLabel">$4.00</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Toppings</span>
+          <strong id="toppingsPriceLabel">$0.00</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Quantity</span>
+          <strong id="quantityLabel">1</strong>
+        </div>
+
+        <div class="summary-row total">
+          <span>Total</span>
+          <strong id="totalPriceLabel">$4.00</strong>
+        </div>
+
+      </div>
+
+      <!-- VOICE -->
+
+      <button
+        type="button"
+        class="ghost-btn voice-btn"
+        onclick="startListening()"
+      >
+        Voice Assistant
+      </button>
+
+      <!-- PAYMENT -->
+
+      <button
+        type="button"
+        class="primary-btn"
+        id="continueToPaymentBtn"
+      >
+        Continue to Payment
+      </button>
+
+    </section>
+
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <div class="loader hidden" id="loader">
+
+    <div class="loader-card">
+
+      <div class="spinner"></div>
+
+      <p id="loaderText">
+        Loading...
+      </p>
+
+    </div>
+
+  </div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/common.js"></script>
+  <script src="../js/lang.js"></script>
+  <script src="../js/order.js"></script>
+  <script src="../js/voice.js"></script>
+  <script src="../js/theme.js"></script>
+
+</body>
+</html>

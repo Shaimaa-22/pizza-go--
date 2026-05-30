@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+  <title>Pizza Go - Catch Game</title>
+
+  <link rel="stylesheet" href="../css/game.css" />
+</head>
+
+<body>
+
+  <!-- LEVEL SELECT SCREEN -->
+  <div id="levelScreen" class="screen level-screen">
+    <div class="level-card">
+
+      <!-- Language & Theme Controls -->
+<div class="game-actions">
+  <button id="langToggle" class="game-top-btn" type="button">
+    AR
+  </button>
+
+  <button class="game-top-btn theme-toggle" type="button">
+    ☀️ Light
+  </button>
+</div>
+
+      <div class="header-top">
+<h1 class="game-title">
+  <img src="../assets/pizza-steve.png" alt="Pizza Steve" style="width: 42px; height: 42px; vertical-align: middle; margin-right: 10px; filter: drop-shadow(0 2px 4px rgba(255,140,0,0.4));">
+  Pizza Catch
+</h1>
+   </div>
+
+      <p class="ls-sub" data-i18n="gamePage.chooseDifficulty">Choose your difficulty</p>
+
+      <div class="level-grid">
+        <!-- EASY -->
+        <button class="level-btn" data-level="easy">
+          <span class="lv-icon">🍃</span>
+          <span class="lv-name" data-i18n="gamePage.easy">Easy</span>
+          <span class="lv-desc" data-i18n="gamePage.easyDesc">Chill vibes, slow drops</span>
+          <span class="lv-badge lv-easy">BEGINNER</span>
+        </button>
+
+        <!-- MEDIUM -->
+        <button class="level-btn" data-level="medium">
+          <span class="lv-icon">🌶️</span>
+          <span class="lv-name" data-i18n="gamePage.medium">Medium</span>
+          <span class="lv-desc" data-i18n="gamePage.mediumDesc">Getting spicy now</span>
+          <span class="lv-badge lv-medium">NORMAL</span>
+        </button>
+
+        <!-- HARD -->
+        <button class="level-btn" data-level="hard">
+          <span class="lv-icon">🔥</span>
+          <span class="lv-name" data-i18n="gamePage.hard">Hard</span>
+          <span class="lv-desc" data-i18n="gamePage.hardDesc">Fast, chaotic, ruthless</span>
+          <span class="lv-badge lv-hard">SAVAGE</span>
+        </button>
+
+        <!-- INSANE -->
+        <button class="level-btn" data-level="insane">
+          <span class="lv-icon">💀</span>
+          <span class="lv-name" data-i18n="gamePage.insane">Insane</span>
+          <span class="lv-desc" data-i18n="gamePage.insaneDesc">You asked for this</span>
+          <span class="lv-badge lv-insane">UNHINGED</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GAME SCREEN -->
+  <div id="gameScreen" class="screen game-screen hidden">
+    <main class="game-page">
+      <section class="game-card">
+
+        <!-- HEADER -->
+        <div class="game-header">
+          <div class="header-top">
+<h1 class="game-title">
+  <img src="../assets/pizza-steve.png" alt="Pizza Steve" style="width: 42px; height: 42px; vertical-align: middle; margin-right: 10px;">
+  Pizza Catch
+</h1>            <div class="level-badge-wrapper">
+              <div id="gameLevelBadge" class="level-badge-inline lv-medium">Medium</div>
+            </div>
+<button class="game-top-btn theme-toggle" type="button">
+  ☀️ Light
+</button>          </div>
+          <p class="subtitle" data-i18n="gamePage.subtitle">Catch only your selected toppings!</p>
+        </div>
+
+        <!-- STATS -->
+        <div class="game-info">
+          <div class="stat-box">
+            <span class="stat-label" data-i18n="gamePage.score">Score</span>
+            <span class="stat-value" id="score">0</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label" data-i18n="gamePage.time">Time</span>
+            <span class="stat-value" id="time">30</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-label" data-i18n="gamePage.best">Best</span>
+            <span class="stat-value" id="bestScore">0</span>
+          </div>
+        </div>
+
+        <!-- TIME BAR -->
+        <div class="time-bar-wrap">
+          <div class="time-bar" id="timeBar" style="width: 100%"></div>
+        </div>
+
+        <!-- SELECTED TOPPINGS HINT -->
+        <div class="toppings-hint" id="toppingsHint"></div>
+
+        <!-- GAME AREA -->
+        <div id="gameArea" class="game-area">
+          <!-- PLAYER BASKET -->
+          <div id="basket" class="basket">🍕</div>
+
+          <!-- COMBO DISPLAY -->
+          <div class="combo-display" id="comboDisplay"></div>
+
+          <!-- END GAME OVERLAY -->
+          <div class="end-overlay" id="endOverlay">
+            <div class="end-emoji" id="endEmoji">🏆</div>
+            <div class="end-title" id="endTitle">Pizza Master!</div>
+            <div class="end-score-display" id="endScore">0</div>
+            <div class="end-score-label" data-i18n="gamePage.points">Points</div>
+            <div class="stars-row" id="starsRow">⭐⭐⭐</div>
+            <div id="newBestTag" class="new-best hidden">🎉 NEW BEST!</div>
+            <div class="overlay-btns">
+              <button class="btn-restart" id="restartBtn" data-i18n="gamePage.restart">🔄 Again</button>
+              <button class="btn-levels" id="changeLevelBtn" data-i18n="gamePage.levels">⚙️ Levels</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- MESSAGE -->
+        <p id="gameMessage" class="game-message" data-i18n="gamePage.message">
+          Move your pizza and catch the right toppings!
+        </p>
+
+        <!-- STATUS BUTTON -->
+        <button id="statusBtn" class="status-btn" disabled data-i18n="gamePage.status">
+          🛵 Check Order Status
+        </button>
+
+      </section>
+    </main>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="../js/config.js"></script>
+  <script src="../js/lang.js"></script>
+  <script src="../js/game.js"></script>
+  <script src="../js/theme.js"></script>
+
+</body>
+</html>

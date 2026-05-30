@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+  <title>Pizza Go | Artisanal Digital Experience</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="./css/index.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div
+  style="
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:9999;
+    display:flex;
+    gap:10px;
+  "
+>
+
+  <button
+    id="langToggle"
+    class="btn btn-secondary"
+    type="button"
+  >
+    🌍 AR
+  </button>
+
+  <button
+    class="btn btn-secondary theme-toggle"
+    type="button"
+  >
+    ☀️ Light
+  </button>
+
+</div>
+
+<div class="noise-overlay"></div>
+<div class="orb-dynamic orb-prime"></div>
+<div class="orb-dynamic orb-second"></div>
+<div class="orb-dynamic orb-tertiary"></div>
+<div class="precision-grid"></div>
+
+<main class="landing-container">
+  <div class="luxury-grid">
+
+    <div class="content-block">
+      <div class="brand-badge">
+        <img class="brand-icon" src="../assets/images/icon.png" alt="Pizza Go Emblem" onerror="this.src='https://placehold.co/48x48?text=🍕'">
+
+        <span class="badge-text" data-i18n="homePage.badge">
+          PIZZA GO · DIGITAL OVEN
+        </span>
+      </div>
+
+      <h1 class="main-headline">
+        <span class="headline-line" data-i18n="homePage.headline1">Where taste</span>
+        <span class="headline-line gradient-text" data-i18n="homePage.headline2">meets velocity.</span>
+      </h1>
+
+      <div class="description" data-i18n="homePage.description">
+        Experience the future of smart pizza ordering. Ultra-fast, visually immersive, and intelligently crafted.
+        Log in or register to unlock a premium dashboard with real-time insights.
+      </div>
+
+      <div class="action-group">
+        <a href="../pages/login.html" class="btn btn-primary">
+          <span>→</span>
+          <span data-i18n="homePage.secureLogin">Secure Login</span>
+        </a>
+
+        <a href="../pages/register.html" class="btn btn-secondary">
+          <span data-i18n="homePage.getStarted">✦ Get Started</span>
+        </a>
+      </div>
+
+      <div class="stats-panel">
+        <div class="stat-card">
+          <div class="stat-number"><span class="live-badge"></span> 24/7</div>
+          <div class="stat-label" data-i18n="homePage.smartAccess">Smart Access</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">0.8s</div>
+          <div class="stat-label" data-i18n="homePage.instantUi">instant UI</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">✦ 4.9</div>
+          <div class="stat-label" data-i18n="homePage.experienceRank">Experience rank</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="visual-sphere">
+      <div class="orbital-ring ring-outer"></div>
+      <div class="orbital-ring ring-mid"></div>
+      <div class="orbital-ring ring-inner"></div>
+
+      <div class="floating-core">
+        <img class="core-logo" src="../assets/images/icon.png" alt="Pizza Go Core" onerror="this.src='https://placehold.co/160x160?text=🍕🔥'">
+      </div>
+
+      <div class="info-floating float-1">
+        <p data-i18n="homePage.smartQueue">✨ Smart queue</p>
+        <small data-i18n="homePage.aiOptimization">AI-driven optimization</small>
+      </div>
+
+      <div class="info-floating float-2">
+        <p data-i18n="homePage.instantOrderSync">⚡ Instant order sync</p>
+        <small data-i18n="homePage.realTimeUpdates">real-time updates</small>
+      </div>
+
+      <div class="info-floating float-3">
+        <p data-i18n="homePage.artisanalRecipes">🍕 Artisanal recipes</p>
+        <small data-i18n="homePage.freshIngredients">fresh ingredients</small>
+      </div>
+
+      <div class="info-floating float-4">
+        <p data-i18n="homePage.privacyFirst">🔒 Privacy-first</p>
+        <small data-i18n="homePage.enterpriseGrade">enterprise grade</small>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="../js/lang.js"></script>
+
+<script>
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', function() {
+      if (!this.hasAttribute('data-fallback')) {
+        this.setAttribute('data-fallback', 'true');
+        if (this.classList.contains('brand-icon') || this.classList.contains('core-logo')) {
+          this.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="45" fill="%23FF8C42"/%3E%3Ctext x="50" y="68" font-size="40" text-anchor="middle" fill="white"%3E🍕%3C/text%3E%3C/svg%3E';
+        }
+      }
+    });
+  });
+
+  const cards = document.querySelectorAll('.info-floating');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-18px) scale(1.02)';
+      card.style.transition = '0.2s ease';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+</script>
+  <script src="./js/theme.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Pizza Go - My Orders</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/my-orders.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <h1>🍕 My Orders</h1>
+
+    <div class="topbar-actions">
+      <a class="ghost-btn" href="./order.html">New Order</a>
+      <button id="logoutBtn" class="ghost-btn" type="button">Logout</button>
+    </div>
+  </header>
+
+  <main class="orders-page">
+    <section class="card orders-card">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Order history</p>
+          <h2>All your pizza orders</h2>
+          <p class="muted">Track every order and its current machine status.</p>
+        </div>
+
+        <button id="refreshBtn" class="ghost-btn small" type="button">
+          Refresh
+        </button>
+      </div>
+
+      <div id="ordersContainer" class="orders-list">
+        <p class="muted">Loading your orders...</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="../js/config.js"></script>
+  <script src="../js/my-orders.js"></script>
+</body>
+</html>

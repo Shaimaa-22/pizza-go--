@@ -1,0 +1,37 @@
+.tracker{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  margin-top:24px;
+}
+
+.step{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:14px 16px;
+  border-radius:16px;
+  background:rgba(255,255,255,.08);
+  opacity:.45;
+  transition:.3s ease;
+}
+
+.step.active{
+  opacity:1;
+  border:2px solid #ff7a00;
+  transform:scale(1.02);
+}
+
+.step.done{
+  opacity:1;
+  background:rgba(31,180,86,.18);
+}
+
+.step span{
+  font-size:26px;
+}
+
+.step p{
+  margin:0;
+  font-weight:700;
+}

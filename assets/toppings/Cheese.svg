@@ -1,0 +1,70 @@
+<svg width="700" height="700" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cheeseGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff8b5"/>
+      <stop offset="40%" stop-color="#ffd84d"/>
+      <stop offset="100%" stop-color="#e89b00"/>
+    </linearGradient>
+
+    <filter id="softShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+
+<pattern id="cheesePattern"
+         x="0"
+         y="0"
+         width="75"
+         height="55"
+         patternUnits="userSpaceOnUse">
+  <g fill="none" stroke="url(#cheeseGrad)" stroke-linecap="round" filter="url(#softShadow)">
+    <path d="M5 8 C15 3 25 5 35 12" stroke-width="5"/>
+    <path d="M40 6 C50 2 60 5 70 12" stroke-width="5"/>
+    <path d="M75 8 C85 3 95 5 100 12" stroke-width="5"/>
+
+    <path d="M10 25 C25 15 40 20 55 30" stroke-width="6"/>
+    <path d="M60 22 C75 14 90 18 98 28" stroke-width="6"/>
+
+    <path d="M5 45 C20 35 35 40 50 52" stroke-width="6"/>
+    <path d="M55 42 C70 34 85 40 98 52" stroke-width="6"/>
+  </g>
+
+<g fill="url(#cheeseGrad)" stroke="#d89200" stroke-width="0.35">
+
+  <rect x="3"  y="4"  width="18" height="5" rx="3" transform="rotate(-17 3 4)"/>
+  <rect x="29" y="11" width="11" height="4" rx="2" transform="rotate(23 29 11)"/>
+  <rect x="51" y="2"  width="21" height="6" rx="3" transform="rotate(-8 51 2)"/>
+  <rect x="82" y="9"  width="14" height="5" rx="2.5" transform="rotate(31 82 9)"/>
+
+  <rect x="12" y="21" width="24" height="6" rx="3" transform="rotate(-26 12 21)"/>
+  <rect x="37" y="18" width="13" height="4" rx="2" transform="rotate(11 37 18)"/>
+  <rect x="60" y="26" width="17" height="5" rx="2.5" transform="rotate(-33 60 26)"/>
+  <rect x="78" y="22" width="25" height="6" rx="3" transform="rotate(14 78 22)"/>
+
+  <rect x="4"  y="38" width="15" height="5" rx="2.5" transform="rotate(37 4 38)"/>
+  <rect x="25" y="43" width="28" height="7" rx="3.5" transform="rotate(-11 25 43)"/>
+  <rect x="54" y="35" width="12" height="4" rx="2" transform="rotate(27 54 35)"/>
+  <rect x="69" y="46" width="19" height="5" rx="2.5" transform="rotate(-21 69 46)"/>
+
+  <rect x="8"  y="58" width="23" height="6" rx="3" transform="rotate(-34 8 58)"/>
+  <rect x="33" y="60" width="10" height="4" rx="2" transform="rotate(18 33 60)"/>
+  <rect x="50" y="55" width="20" height="6" rx="3" transform="rotate(9 50 55)"/>
+  <rect x="74" y="61" width="14" height="5" rx="2.5" transform="rotate(-28 74 61)"/>
+
+  <!-- قطع صغيرة جداً -->
+  <rect x="18" y="30" width="8" height="3" rx="1.5" transform="rotate(42 18 30)"/>
+  <rect x="44" y="50" width="7" height="3" rx="1.5" transform="rotate(-39 44 50)"/>
+  <rect x="89" y="40" width="9" height="3" rx="1.5" transform="rotate(15 89 40)"/>
+  <rect x="65" y="8" width="7" height="3" rx="1.5" transform="rotate(-48 65 8)"/>
+
+</g>
+   
+
+</pattern>
+
+    <clipPath id="pizzaCircle">
+      <circle cx="350" cy="350" r="300"/>
+    </clipPath>
+  </defs>
+
+  <circle cx="350" cy="350" r="300" fill="url(#cheesePattern)" clip-path="url(#pizzaCircle)"/>
+</svg>

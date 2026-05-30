@@ -1,0 +1,394 @@
+/* order.css - Enhanced Professional Version */
+.order-page {
+  width: min(1280px, calc(100% - 48px));
+  margin: 28px auto 48px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(380px, 450px);
+  gap: 28px;
+}
+
+/* Pizza Stage */
+.pizza-stage {
+  min-height: 480px;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  border-radius: 36px;
+  background: radial-gradient(ellipse at 40% 45%, rgba(255, 177, 92, 0.12), transparent 55%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.3s ease;
+}
+
+.pizza-stage:hover {
+  border-color: rgba(255, 177, 92, 0.2);
+  box-shadow: 0 0 40px rgba(255, 140, 66, 0.08);
+}
+
+/* Pizza Visual */
+.pizza {
+  width: min(460px, 80vw);
+  aspect-ratio: 1;
+  position: relative;
+  filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.4));
+  transition: transform 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.pizza:hover {
+  transform: scale(1.02);
+}
+
+.pizza::before {
+  content: '';
+  position: absolute;
+  inset: -24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 177, 92, 0.25), transparent 65%);
+  z-index: -1;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.pizza:hover::before {
+  opacity: 0.9;
+}
+
+.pizza-base {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: url("../assets/toppings/pizza.png") center/cover no-repeat;
+}
+
+.pizza-toppings-visual {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.pizza-topping-img {
+  position: absolute;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.25));
+  user-select: none;
+  pointer-events: none;
+  animation: toppingPop 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  transition: transform 0.2s ease;
+}
+
+.pizza-topping-img:hover {
+  transform: translate(-50%, -50%) scale(1.08) rotate(5deg);
+}
+
+@keyframes toppingPop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.pizza-topping-img.small { width: 32px; height: 32px; }
+.pizza-topping-img.medium { width: 42px; height: 42px; }
+.pizza-topping-img.large { width: 56px; height: 56px; }
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.legend span:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 177, 92, 0.3);
+  transform: translateY(-1px);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.olive-dot {
+  background: #7CB342;
+  box-shadow: 0 0 4px #7CB342;
+}
+
+.pepper-dot {
+  background: #E53935;
+  box-shadow: 0 0 4px #E53935;
+}
+
+.corn-dot {
+  background: #FFD54F;
+  box-shadow: 0 0 4px #FFD54F;
+}
+
+/* Option Blocks */
+.option-block + .option-block {
+  margin-top: 28px;
+}
+
+.option-title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.option-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.fixed-size-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 40px;
+  background: linear-gradient(135deg, rgba(255, 211, 157, 0.2), rgba(255, 140, 66, 0.2));
+  color: var(--accent);
+  border: 1px solid rgba(255, 189, 145, 0.35);
+  font-weight: 600;
+  font-size: 0.85rem;
+  backdrop-filter: blur(4px);
+}
+
+/* Toppings List */
+.toppings-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.topping-item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(255, 189, 145, 0.12);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px 18px;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  cursor: pointer;
+}
+
+.topping-item:hover {
+  border-color: rgba(255, 177, 92, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
+}
+
+.topping-item.active {
+  border-color: rgba(255, 177, 92, 0.5);
+  background: linear-gradient(135deg, rgba(255, 177, 92, 0.12), rgba(255, 255, 255, 0.04));
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.topping-thumb {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  display: grid;
+  place-items: center;
+  transition: all 0.3s ease;
+}
+
+.topping-item.active .topping-thumb {
+  background: linear-gradient(135deg, rgba(255, 177, 92, 0.2), rgba(255, 140, 66, 0.1));
+  border-color: rgba(255, 177, 92, 0.4);
+}
+
+.topping-thumb img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+.topping-item.active .topping-thumb img {
+  transform: scale(1.15);
+}
+
+.topping-meta h4 {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.topping-meta p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* Switch Toggle */
+.switch {
+  width: 56px;
+  height: 32px;
+  border-radius: 100px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  position: relative;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.switch::after {
+  content: '';
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.switch.active {
+  background: linear-gradient(135deg, #ffd39d, #ff8c42);
+}
+
+.switch.active::after {
+  transform: translateX(24px);
+}
+
+/* Voice Button */
+.voice-btn {
+  width: 100%;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.voice-btn.active-call {
+  background: linear-gradient(135deg, #e53935, #c62828);
+  border-color: #e53935;
+  color: white;
+  animation: pulseCall 1.5s infinite;
+}
+
+@keyframes pulseCall {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(229, 57, 53, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(229, 57, 53, 0); }
+}
+
+/* Logo Wrap */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-img {
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
+  filter: drop-shadow(0 4px 12px rgba(255, 140, 66, 0.5));
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+
+.logo-img:hover {
+  transform: scale(1.08) rotate(-3deg);
+  filter: drop-shadow(0 6px 18px rgba(255, 140, 66, 0.7));
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .order-page {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pizza-stage {
+    min-height: 380px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .order-page {
+    width: calc(100% - 24px);
+    margin: 20px auto 32px;
+  }
+
+  .pizza-stage {
+    min-height: 320px;
+    padding: 16px;
+    border-radius: 28px;
+  }
+
+  .topping-item {
+    grid-template-columns: 52px 1fr auto;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 20px;
+  }
+
+  .topping-thumb {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+  }
+
+  .topping-thumb img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .pizza-topping-img.small { width: 26px; height: 26px; }
+  .pizza-topping-img.medium { width: 34px; height: 34px; }
+  .pizza-topping-img.large { width: 44px; height: 44px; }
+
+  .logo-img {
+    width: 44px;
+    height: 44px;
+  }
+}
+.pizza-sauce-layer {
+  position: absolute;
+  top: 10%;
+  left: 3.5%;
+  width: 86%;
+  height: 89%;
+  object-fit: contain;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.pizza-topping-img {
+  z-index: 3;
+}
