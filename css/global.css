@@ -496,10 +496,18 @@ input:focus, textarea:focus, select:focus {
   backdrop-filter: blur(20px);
   text-align: center;
   font-size: 0.9rem;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .toast.show {
   transform: translateX(-50%) translateY(0);
+
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .toast.success {
