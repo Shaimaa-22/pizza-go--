@@ -586,5 +586,5 @@ gameArea.addEventListener("touchmove", (e) => {
 restartBtn.addEventListener("click", startGame);
 
 statusBtn.addEventListener("click", () => {
-  window.location.href = "./order.html";
+window.location.href = "./status.html";
 });
