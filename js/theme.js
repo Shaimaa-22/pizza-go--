@@ -1,23 +1,28 @@
 (function () {
-  const savedTheme = localStorage.getItem("pizza_go_theme") || "dark";
-  document.documentElement.setAttribute("data-theme", savedTheme);
+  const root = document.documentElement;
 
-  window.toggleTheme = function () {
-    const current = document.documentElement.getAttribute("data-theme");
-    const next = current === "dark" ? "light" : "dark";
-
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("pizza_go_theme", next);
+  function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+    localStorage.setItem("pizza_go_theme", theme);
 
     document.querySelectorAll(".theme-toggle").forEach((btn) => {
-      btn.textContent = next === "dark" ? "☀️ Light" : "🌙 Dark";
+      btn.textContent = theme === "dark" ? "☀️ Light" : "🌙 Dark";
     });
+  }
+
+  const savedTheme = localStorage.getItem("pizza_go_theme") || "dark";
+  applyTheme(savedTheme);
+
+  window.toggleTheme = function () {
+    const current = root.getAttribute("data-theme") || "dark";
+    const next = current === "dark" ? "light" : "dark";
+    applyTheme(next);
   };
 
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".theme-toggle").forEach((btn) => {
-      btn.textContent = savedTheme === "dark" ? "☀️ Light" : "🌙 Dark";
       btn.addEventListener("click", window.toggleTheme);
     });
+    applyTheme(root.getAttribute("data-theme") || savedTheme);
   });
 })();
