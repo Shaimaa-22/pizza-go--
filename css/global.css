@@ -829,4 +829,70 @@ input:focus, textarea:focus, select:focus {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}/* FORCE DARK MODE FIX FOR MOBILE */
+:root[data-theme="dark"] {
+  --bg: #0a0604;
+  --bg-2: #16100c;
+  --bg-3: #1f1611;
+  --surface: rgba(25, 18, 14, 0.95);
+  --surface-strong: rgba(35, 25, 20, 0.98);
+  --surface-soft: rgba(255, 248, 241, 0.06);
+  --card-border: rgba(255, 181, 108, 0.2);
+  --text: #fffaf5;
+  --text-soft: #f0e4d8;
+  --muted: #c5b5a5;
+  --primary: #ff8c42;
+  --primary-2: #ffb15c;
 }
+
+:root[data-theme="dark"] body {
+  background: radial-gradient(ellipse at 20% 30%, #1a120c, #050302 90%) !important;
+  color: var(--text) !important;
+}
+
+:root[data-theme="dark"] .card,
+:root[data-theme="dark"] .orders-card,
+:root[data-theme="dark"] .order-item,
+:root[data-theme="dark"] .summary-box {
+  background: linear-gradient(135deg, rgba(30, 22, 18, 0.92), rgba(20, 14, 10, 0.96)) !important;
+  color: var(--text) !important;
+  border-color: rgba(255, 181, 108, 0.2) !important;
+}
+
+:root[data-theme="dark"] .ghost-btn,
+:root[data-theme="dark"] .user-chip {
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: var(--text-soft) !important;
+  border-color: rgba(255, 181, 108, 0.25) !important;
+}
+
+:root[data-theme="dark"] h1,
+:root[data-theme="dark"] h2,
+:root[data-theme="dark"] h3,
+:root[data-theme="dark"] h4,
+:root[data-theme="dark"] p,
+:root[data-theme="dark"] span,
+:root[data-theme="dark"] strong {
+  color: inherit;
+}
+
+:root[data-theme="dark"] .topbar h1 {
+  background: linear-gradient(135deg, #fff, #ffd5b0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+@media (max-width: 700px) {
+  :root[data-theme="dark"] body {
+    background: #0a0604 !important;
+  }
+
+  :root[data-theme="dark"] .card,
+  :root[data-theme="dark"] .orders-card,
+  :root[data-theme="dark"] .order-item {
+    background: rgba(20, 14, 10, 0.96) !important;
+  }
+}
+
+
