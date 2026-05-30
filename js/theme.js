@@ -1,28 +1,33 @@
 (function () {
   const root = document.documentElement;
+  const btns = () => document.querySelectorAll(".theme-toggle");
 
   function applyTheme(theme) {
     root.setAttribute("data-theme", theme);
+    document.body.setAttribute("data-theme", theme);
     localStorage.setItem("pizza_go_theme", theme);
 
-    document.querySelectorAll(".theme-toggle").forEach((btn) => {
+    btns().forEach((btn) => {
       btn.textContent = theme === "dark" ? "☀️ Light" : "🌙 Dark";
     });
   }
 
-  const savedTheme = localStorage.getItem("pizza_go_theme") || "dark";
-  applyTheme(savedTheme);
+  let savedTheme = localStorage.getItem("pizza_go_theme");
 
-  window.toggleTheme = function () {
-    const current = root.getAttribute("data-theme") || "dark";
-    const next = current === "dark" ? "light" : "dark";
-    applyTheme(next);
-  };
+  if (savedTheme !== "dark" && savedTheme !== "light") {
+    savedTheme = "dark";
+  }
+
+  applyTheme(savedTheme || "dark");
 
   document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".theme-toggle").forEach((btn) => {
-      btn.addEventListener("click", window.toggleTheme);
+    btns().forEach((btn) => {
+      btn.onclick = function () {
+        const current = root.getAttribute("data-theme") || "dark";
+        applyTheme(current === "dark" ? "light" : "dark");
+      };
     });
-    applyTheme(root.getAttribute("data-theme") || savedTheme);
+
+    applyTheme(localStorage.getItem("pizza_go_theme") || "dark");
   });
 })();
