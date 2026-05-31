@@ -147,7 +147,7 @@ const toppingPlacements = {
 
 function getSelectedToppingsPrice() {
   return state.toppingsCatalog.reduce((sum, topping) => {
-    return sum + (state.toppingsSelection[topping.topping_name] ? 0.5 : 0);
+    return sum + (state.toppingsSelection[topping.topping_name] ? 0.2 : 0);
   }, 0);
 }
 
@@ -251,7 +251,7 @@ function renderToppings() {
             <div class="topping-header">
               <h4>${topping.topping_name}</h4>
             </div>
-            <p>+$0.50 each</p>
+            <p>+$0.20 each</p>
           </div>
 
           <button
